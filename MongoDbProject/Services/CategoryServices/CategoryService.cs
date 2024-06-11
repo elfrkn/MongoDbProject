@@ -37,7 +37,7 @@ namespace MongoDbProject.Services.CategoryServices
 
         public async Task<GetByIdCategoryDto> GetByIdCategoryAsync(string id)
         {
-            var value = await _categoryCollection.Find<Category>(x => x.CategoryId == id).FirstOrDefaultAsync();
+            var value = await _categoryCollection.Find(x => x.CategoryId == id).FirstOrDefaultAsync();
             return _mapper.Map<GetByIdCategoryDto>(value);
         }
 

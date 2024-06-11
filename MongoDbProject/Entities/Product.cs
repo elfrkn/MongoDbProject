@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
+using System.ComponentModel.DataAnnotations;
 
 namespace MongoDbProject.Entities
 {
@@ -12,6 +13,12 @@ namespace MongoDbProject.Entities
         public  int Stock { get; set; }
         public  decimal Price { get; set; }
         public  string? ImageUrl { get; set; }
-        
+
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string CategoryId { get; set; }
+
+        [BsonIgnore]
+        public Category Category { get; set; }
+
     }
 }

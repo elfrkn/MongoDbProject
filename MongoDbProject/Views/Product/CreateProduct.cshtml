@@ -29,7 +29,9 @@
                                 <label>Ürün Resim</label>
                                 <input type="text" asp-for="ImageUrl" class="form-control" />
                                 <br />
-                                
+                                <label>Kategori Seçiniz</label>
+                                    @Html.DropDownListFor(x => x.CategoryId,(List<SelectListItem>)ViewBag.Categories, "Seçiniz...",new { @class="form-control"})
+                                <br />
                                 <button type="submit" class="btn btn-primary">Ürünü Ekle</button>
                                 <br /><br />
                             </div>
