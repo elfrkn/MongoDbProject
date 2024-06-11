@@ -1,0 +1,36 @@
+﻿@model MongoDbProject.Dtos.CategoryDtos.GetByIdCategoryDto
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col">
+        <div class="card shadow">
+            <div class="card-header border-0">
+                <h3 class="mb-0">Kategori Güncelleme Sayfası</h3>
+            </div>
+            <div class="table-responsive">
+                <table class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                    <tbody>
+                        <form method="post">
+                            <div class="container">
+                                <br /><br />
+
+                                <label>Kategori Id</label>
+                                <input type="text" asp-for="CategoryId" class="form-control" />
+                                <br />
+                                <label>Kategori Adı</label>
+                                <input type="text" asp-for="CategoryName" class="form-control" />
+                                <br />
+                                <button type="submit" class="btn btn-primary">Kategoriyi Güncelle</button>
+                                <br /><br />
+                            </div>
+                        </form>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

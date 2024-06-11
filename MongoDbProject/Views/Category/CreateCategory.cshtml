@@ -1,15 +1,33 @@
 ﻿@model MongoDbProject.Dtos.CategoryDtos.CreateCategoryDto
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    
 }
 
-<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-<div class="container">
-<form method="post">
-    <div class="alert alert-info">Yeni Kategori ekleme</div>
-    <label>Kategori Adı</label>
-    <input type="text" asp-for="CategoryName" class="form-control" />
-    <br />
-    <button class="btn btn-dark">Kategoriyi Oluştur</button>
-</form>
+<div class="row">
+    <div class="col">
+        <div class="card shadow">
+            <div class="card-header border-0">
+                <h3 class="mb-0">Kategori Ekle</h3>
+            </div>
+            <div class="table-responsive">
+                <table class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                    <tbody>
+                        <form method="post">
+                            <div class="container">
+                                <br /><br />
+
+                                <label>Kategori Adı</label>
+                                <input type="text" asp-for="CategoryName" class="form-control" />
+                                <br />
+                                <button type="submit" class="btn btn-primary">Kategoriyi Ekle</button>
+                                <br /><br />
+                            </div>
+                        </form>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>

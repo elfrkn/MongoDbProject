@@ -24,9 +24,9 @@ namespace MongoDbProject.Services.CategoryServices
             await _categoryCollection.InsertOneAsync(value);
         }
 
-        public Task DeleteCategoryAsync(string id)
+        public async  Task DeleteCategoryAsync(string id)
         {
-            throw new NotImplementedException();
+            await _categoryCollection.DeleteOneAsync(x=>x.CategoryId == id);
         }
 
         public async Task<List<ResultCategoryDto>> GetAllCategoryAsync()
@@ -35,14 +35,16 @@ namespace MongoDbProject.Services.CategoryServices
             return _mapper.Map<List<ResultCategoryDto>>(values);
         }
 
-        public Task<GetByIdCategoryDto> GetByIdCategoryAsync(string id)
+        public async Task<GetByIdCategoryDto> GetByIdCategoryAsync(string id)
         {
-            throw new NotImplementedException();
+            var value = await _categoryCollection.Find<Category>(x => x.CategoryId == id).FirstOrDefaultAsync();
+            return _mapper.Map<GetByIdCategoryDto>(value);
         }
 
-        public Task UpdateCategoryAsync(UpdateCategoryDto categoryDto)
+        public async Task UpdateCategoryAsync(UpdateCategoryDto categoryDto)
         {
-            throw new NotImplementedException();
+            var values = _mapper.Map<Category>(categoryDto);
+            await _categoryCollection.FindOneAndReplaceAsync(x => x.CategoryId == categoryDto.CategoryId, values);
         }
     }
 }
