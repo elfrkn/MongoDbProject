@@ -39,7 +39,7 @@ namespace MongoDbProject.Services.CustomerServices
 
         public async Task<GetByIdCustomerDto> GetByIdCustomerAsync(string id)
         {
-            var value = await _customerCollection.Find<Customer>(x => x.CustomerId == id).FirstOrDefaultAsync();
+            var value = await _customerCollection.Find(x => x.CustomerId == id).FirstOrDefaultAsync();
             return _mapper.Map<GetByIdCustomerDto>(value);
         }
 

@@ -1,0 +1,44 @@
+﻿@model MongoDbProject.Dtos.CustomerDtos.CreateCustomerDto
+@{
+    ViewData["Title"] = "CreateCustomer";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col">
+        <div class="card shadow">
+            <div class="card-header border-0">
+                <h3 class="mb-0">Müşteri Ekle</h3>
+            </div>
+            <div class="table-responsive">
+                <table class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                    <tbody>
+                        <form method="post">
+                            <div class="container">
+                                <br /><br />
+
+                                <label>Müşteri Adı Soyadı</label>
+                                <input type="text" asp-for="CustomerNameSurname" class="form-control" />
+                                <br />
+                                <label>Müşteri Şehir</label>
+                                <input type="text" asp-for="CustomerCity" class="form-control" />
+                                <br />
+                                <label>Müşteri Mail</label>
+                                <input type="text" asp-for="CustomerMail" class="form-control" />
+                                <br />
+                                <label>Müşteri Telefon</label>
+                                <input type="text" asp-for="CustomerPhone" class="form-control" />
+                                <br />
+
+                                <button type="submit" class="btn btn-primary">Müşteriyi Ekle</button>
+                                <br /><br />
+                            </div>
+                        </form>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

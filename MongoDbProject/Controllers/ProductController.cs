@@ -52,6 +52,14 @@ namespace MongoDbProject.Controllers
         [HttpGet]
         public async Task<IActionResult> UpdateProduct(string id)
         {
+
+            List<SelectListItem> values = (from x in await _categoryService.GetAllCategoryAsync()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.CategoryName,
+                                               Value = x.CategoryId.ToString()
+                                           }).ToList();
+            ViewBag.Categories = values;
             var value = await _productService.GetByIdProductAsync(id);
             return View(value);
         }

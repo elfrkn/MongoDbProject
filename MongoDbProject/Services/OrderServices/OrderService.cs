@@ -30,29 +30,38 @@ namespace MongoDbProject.Services.OrderServices
             await _orderCollection.InsertOneAsync(value);
         }
 
-        public Task DeleteOrderAsync(string id)
+        public async Task DeleteOrderAsync(string id)
         {
-            throw new NotImplementedException();
+            await _orderCollection.DeleteOneAsync(x=>x.OrderId == id);
         }
 
-        public Task<List<ResultOrderDto>> GetAllOrderAsync()
+        public async Task<List<ResultOrderDto>> GetAllOrderAsync()
         {
-            throw new NotImplementedException();
+            var values = await _customerCollection.Find(x => true).ToListAsync();
+            return _mapper.Map<List<ResultOrderDto>>(values);
         }
 
-        public Task<GetByIdOrderDto> GetByIdOrderAsync(string id)
+        public async  Task<GetByIdOrderDto> GetByIdOrderAsync(string id)
         {
-            throw new NotImplementedException();
+            var value =await _orderCollection.Find(x => x.OrderId == id).FirstOrDefaultAsync();
+            return _mapper.Map<GetByIdOrderDto>(value);
         }
 
-        public Task<List<ResultOrderWithCustomerDto>> ResultOrderWithCustomerDto()
+        public async Task<List<ResultOrderWithCustomerDto>> ResultOrderWithCustomerDto()
         {
-            throw new NotImplementedException();
+            var values = await _orderCollection.Find(x => true).ToListAsync();
+            foreach(var item in values)
+            {
+                item.Customer = await _customerCollection.Find(x => x.CustomerId == item.CustomerId).FirstAsync();
+            }
+            return _mapper.Map<List<ResultOrderWithCustomerDto>>(values);
+            
         }
 
-        public Task UpdateOrderAsync(UpdateOrderDto productDto)
+        public async Task UpdateOrderAsync(UpdateOrderDto orderDto)
         {
-            throw new NotImplementedException();
+            var values = _mapper.Map<Order>(orderDto);
+            await _orderCollection.FindOneAndReplaceAsync(x => x.OrderId == orderDto.OrderId, values);
         }
     }
 }
