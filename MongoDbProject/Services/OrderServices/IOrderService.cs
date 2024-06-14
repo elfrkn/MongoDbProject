@@ -1,5 +1,6 @@
 ﻿using MongoDbProject.Dtos.OrderDtos;
 using MongoDbProject.Dtos.ProductDtos;
+using MongoDbProject.Models;
 
 namespace MongoDbProject.Services.OrderServices
 {
@@ -10,6 +11,7 @@ namespace MongoDbProject.Services.OrderServices
         Task UpdateOrderAsync(UpdateOrderDto productDto);
         Task DeleteOrderAsync(string id);
         Task<GetByIdOrderDto> GetByIdOrderAsync(string id);
-        Task<List<ResultOrderWithCustomerDto>> ResultOrderWithCustomerDto();
+        Task<List<ResultOrderWithCustomerWithProductDto>> ResultOrderWithCustomerWithProductDto();
+        Task<List<OrderWithCustomerListPdfViewModel>> GetOrderListViewModels();
     }
 }

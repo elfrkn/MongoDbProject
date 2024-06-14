@@ -21,8 +21,7 @@
                                 <input type="text" asp-for="OrderId" class="form-control" readonly />
                                 <br />
                                 <label>Ürün Adı</label>
-                                <input type="text" asp-for="OrderProductName" class="form-control" />
-                                <br />
+                                    @Html.DropDownListFor(x => x.CustomerId, (List<SelectListItem>)ViewBag.Product, "Seçiniz...", new { @class = "form-control" })
                                 <label>Ürün Adet</label>
                                 <input type="text" asp-for="OrderProductPiece" class="form-control" />
                                 <br />
@@ -32,7 +31,7 @@
                                 <label>Sipariş Tarihi</label>
                                 <input type="text" asp-for="OrderDate" class="form-control" />
                                 <br />
-                                <button type="submit" class="btn btn-primary">Sipariş Ekle</button>
+                                <button type="submit" class="btn btn-primary">Sipariş Güncelle</button>
                                 <br /><br />
                             </div>
                         </form>

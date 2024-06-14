@@ -2,6 +2,7 @@
 using MongoDB.Driver;
 using MongoDbProject.Dtos.ProductDtos;
 using MongoDbProject.Entities;
+using MongoDbProject.Models;
 using MongoDbProject.Settings;
 
 namespace MongoDbProject.Services.ProductServices
@@ -56,6 +57,16 @@ namespace MongoDbProject.Services.ProductServices
             }
 
             return _mapper.Map<List<ResultProductsWithCategoryDto>>(values);
+        }
+
+        public async Task<List<ProductWithCategoryListExcelViewModel>> GetProductWithCategoryListExcelViewModelsAsync()
+        {
+            var values = await _productCollection.Find(x => true).ToListAsync();
+            foreach(var item in values)
+            {
+                item.Category = await _categoryCollection.Find(x => x.CategoryId == item.CategoryId).FirstAsync();
+            }
+            return _mapper.Map<List<ProductWithCategoryListExcelViewModel>>(values);
         }
 
         public async Task UpdateProductAsync(UpdateProductDto productDto)

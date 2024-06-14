@@ -1,4 +1,4 @@
-﻿@model List<MongoDbProject.Dtos.OrderDtos.ResultOrderWithCustomerDto>
+﻿@model List<MongoDbProject.Dtos.OrderDtos.ResultOrderWithCustomerWithProductDto>
 @{
     ViewData["Title"] = "OrderList";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -34,7 +34,7 @@
                                 </td>
 
                                 <td>
-                                    @item.OrderProductName
+                                    @item.Product.Name
                                 </td>
                                 <td>
                                     @item.OrderProductPiece

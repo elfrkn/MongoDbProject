@@ -14,7 +14,7 @@
                 <table class="table align-items-center table-flush">
                     <thead class="thead-light">
                     <tbody>
-                        <form method="post">
+                        <form method="post" enctype="multipart/form-data">
                             <div class="container">
                                 <br /><br />
                                 <label>Ürün Adı</label>
@@ -26,8 +26,11 @@
                                 <label>Ürün Fiyat</label>
                                 <input type="text" asp-for="Price" class="form-control" />
                                 <br />
-                                <label>Ürün Resim</label>
-                                <input type="text" asp-for="ImageUrl" class="form-control" />
+                                <label>Resim Seçin</label>
+                                <input type="file" class="form-control border" name="ImageUrl" />
+                                <br />
+                                <input name="SavedUrl" type="hidden" class="form-control" />
+                                <input name="SavedFileName" type="hidden" class="form-control" />
                                 <br />
                                 <label>Kategori Seçiniz</label>
                                     @Html.DropDownListFor(x => x.CategoryId,(List<SelectListItem>)ViewBag.Categories, "Seçiniz...",new { @class="form-control"})

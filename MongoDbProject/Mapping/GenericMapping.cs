@@ -5,6 +5,7 @@ using MongoDbProject.Dtos.CustomerDtos;
 using MongoDbProject.Dtos.OrderDtos;
 using MongoDbProject.Dtos.ProductDtos;
 using MongoDbProject.Entities;
+using MongoDbProject.Models;
 
 namespace MongoDbProject.Mapping
 {
@@ -22,6 +23,7 @@ namespace MongoDbProject.Mapping
             CreateMap<Product, UpdateProductDto>().ReverseMap();
             CreateMap<Product, GetByIdProductDto>().ReverseMap();
             CreateMap<Product, ResultProductsWithCategoryDto>().ReverseMap();
+            CreateMap<Product, ProductWithCategoryListExcelViewModel>().ReverseMap();
 
             CreateMap<Customer, ResultCustomerDto>().ReverseMap();
             CreateMap<Customer, CreateCustomerDto>().ReverseMap();
@@ -31,7 +33,8 @@ namespace MongoDbProject.Mapping
             CreateMap<Order, CreateOrderDto>().ReverseMap();
             CreateMap<Order, UpdateOrderDto>().ReverseMap();
             CreateMap<Order, GetByIdOrderDto>().ReverseMap();
-            CreateMap<Order, ResultOrderWithCustomerDto>().ReverseMap();
+            CreateMap<Order, ResultOrderWithCustomerWithProductDto>().ReverseMap();
+            CreateMap<Order, OrderWithCustomerListPdfViewModel>().ReverseMap();
         }
     }
 }

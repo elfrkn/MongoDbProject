@@ -1,4 +1,5 @@
 ﻿using MongoDbProject.Dtos.ProductDtos;
+using MongoDbProject.Models;
 
 namespace MongoDbProject.Services.ProductServices
 {
@@ -10,5 +11,6 @@ namespace MongoDbProject.Services.ProductServices
         Task DeleteProductAsync(string id);
         Task<GetByIdProductDto> GetByIdProductAsync(string id);
         Task<List<ResultProductsWithCategoryDto>> GetProductsWithCategoryAsync();
+        Task<List<ProductWithCategoryListExcelViewModel>> GetProductWithCategoryListExcelViewModelsAsync();
     }
 }

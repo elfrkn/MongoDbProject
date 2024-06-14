@@ -24,19 +24,27 @@ namespace MongoDbProject.Controllers
 
         public async Task<IActionResult> OrderList()
         {
-            var values = await _orderServices.ResultOrderWithCustomerDto();
+            var values = await _orderServices.ResultOrderWithCustomerWithProductDto();
             return View(values);
         }
         [HttpGet]
         public async Task<IActionResult> CreateOrder()
         {
-            List<SelectListItem> values = (from x in await _customerService.GetAllCustomerAsync()
+            List<SelectListItem> customervalues = (from x in await _customerService.GetAllCustomerAsync()
                                            select new SelectListItem
                                            {
                                                Text = x.CustomerNameSurname,
                                                Value = x.CustomerId.ToString()
                                            }).ToList();
-            ViewBag.Customers = values;
+            ViewBag.Customers = customervalues;
+
+            List<SelectListItem> productvalues = (from x in await _productService.GetAllProductAsync()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.Name,
+                                               Value = x.ProductId.ToString()
+                                           }).ToList();
+            ViewBag.Product = productvalues;
             return View();
         }
 
@@ -62,6 +70,14 @@ namespace MongoDbProject.Controllers
                                                Value = x.CustomerId.ToString()
                                            }).ToList();
             ViewBag.Customers = values;
+            List<SelectListItem> productvalues = (from x in await _productService.GetAllProductAsync()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = x.Name,
+                                                      Value = x.ProductId.ToString()
+                                                  }).ToList();
+            ViewBag.Product = productvalues;
+
             var value = await _orderServices.GetByIdOrderAsync(id);
             return View(value);
         }

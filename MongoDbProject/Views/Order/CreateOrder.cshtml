@@ -8,7 +8,7 @@
     <div class="col">
         <div class="card shadow">
             <div class="card-header border-0">
-                <h3 class="mb-0">Yeni Ürün ekleme</h3>
+                <h3 class="mb-0">Yeni Sipariş ekleme</h3>
             </div>
             <div class="table-responsive">
                 <table class="table align-items-center table-flush">
@@ -17,8 +17,8 @@
                         <form method="post">
                             <div class="container">
                                 <br /><br />
-                                <label>Ürün Adı</label>
-                                <input type="text" asp-for="OrderProductName" class="form-control" />
+                                <label>Ürün Adını seçin</label>
+                                    @Html.DropDownListFor(x => x.ProductId, (List<SelectListItem>)ViewBag.Product, "Seçiniz...", new { @class = "form-control" })
                                 <br />
                                 <label>Ürün Adet</label>
                                 <input type="text" asp-for="OrderProductPiece" class="form-control" />

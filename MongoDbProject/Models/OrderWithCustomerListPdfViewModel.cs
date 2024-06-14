@@ -1,13 +1,11 @@
 ﻿using MongoDbProject.Dtos.CustomerDtos;
 
-namespace MongoDbProject.Dtos.OrderDtos
+namespace MongoDbProject.Models
 {
-    public class ResultOrderWithCustomerDto
+    public class OrderWithCustomerListPdfViewModel
     {
-        public string OrderId { get; set; }
         public string OrderProductName { get; set; }
         public string OrderProductPiece { get; set; }
-        public DateTime OrderDate { get; set; }
         public string CustomerId { get; set; }
         public ResultCustomerDto Customer { get; set; }
     }
