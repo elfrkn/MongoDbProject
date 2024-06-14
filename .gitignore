@@ -361,3 +361,4 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/MongoDbProject/wwwroot/mongodbproject-426323-867c5e9a32ac.json
