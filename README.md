@@ -3,7 +3,7 @@ Bu proje bir sipariş yönetim panelidir.Projede ürünler,kategoriler,siparişl
 Ürünleri kategorileri ile beraber bir excel dosyası olarak,sipariş listesini ise bir pdf dosyası olarak bilgisayarınıza indirebilirsiniz.
 Ayrıca her sipariş oluşturduğunuzda üründen kaç adet sipariş verdiyseniz, ürün tablosundaki sipariş verilen ürünün de stok adet sayısı aynı miktarda azalmaktadır..
 
-# Kullanılan Teknolojiler
+## Kullanılan Teknolojiler
 <ul>
  <li>MongoDb</li>
  <li>Mapper</li>
