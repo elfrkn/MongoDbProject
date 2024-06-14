@@ -9,3 +9,18 @@ Ayrıca her sipariş oluşturduğunuzda üründen kaç adet sipariş verdiyseniz
  <li>Mapper</li>
  <li>Google Cloud Storage</li>
 </ul>
+
+# Ürünler
+
+
+
+# Müşteriler 
+
+# Siparişler
+
+# Kategoriler
+
+# Pdf Liste
+
+# Excel Liste
+
